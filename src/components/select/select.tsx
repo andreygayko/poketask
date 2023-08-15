@@ -1,5 +1,5 @@
 import { Input, Options } from "./styled";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Select = ({
   data,
@@ -12,9 +12,25 @@ export const Select = ({
 }) => {
   const [inputValue, setInputValue] = useState(selected);
   const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   return (
-    <div>
+    <div ref={wrapperRef}>
       <Input
         type="text"
         value={inputValue}
