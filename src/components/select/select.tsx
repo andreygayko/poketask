@@ -1,5 +1,5 @@
 import { Input, Options } from "./styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Select = ({
   data,
@@ -13,11 +13,13 @@ export const Select = ({
   const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState(false);
 
+  useEffect(() => setInputValue(selected), []);
+
   return (
     <div>
       <Input
         type="text"
-        value={inputValue}
+        value={inputValue || selected}
         onChange={(e) => setInputValue(e.target.value.toLowerCase())}
         onFocus={() => setOpen(true)}
         placeholder="Ability"
