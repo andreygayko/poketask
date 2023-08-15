@@ -10,7 +10,7 @@ export const Select = ({
   selected: string;
   setSelected: (value: string) => void;
 }) => {
-  const [inputValue, setInputValue] = useState(selected);
+  const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
