@@ -25,7 +25,6 @@ export const HomePage = () => {
   const filteredListByAbility = pokemonListByAbility?.pokemon?.map(
     (el) => el.pokemon || []
   );
-  console.log(pokemonList, filteredListByAbility);
 
   if (isLoading || isLoadingListByAbility) return <>Loading...</>;
   return (
