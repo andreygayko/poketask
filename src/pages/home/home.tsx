@@ -3,7 +3,7 @@ import * as api from "../../network/pokemon-api";
 import { List } from "../../components/list";
 import { Pagination } from "../../components/pagination";
 import { useState } from "react";
-import { Wrapper } from "./styled";
+import { Message, Wrapper } from "./styled";
 import { Filter } from "../../components/filter";
 
 const CARDS_PER_PAGE = 20;
@@ -25,6 +25,7 @@ export const HomePage = () => {
   const filteredListByAbility = pokemonListByAbility?.pokemon?.map(
     (el) => el.pokemon || []
   );
+  console.log(pokemonList, filteredListByAbility);
 
   if (isLoading || isLoadingListByAbility) return <>Loading...</>;
   return (
@@ -43,6 +44,9 @@ export const HomePage = () => {
             pageSetter={setPage}
           />
         </>
+      )}
+      {ability && !filteredListByAbility?.length && !isLoadingListByAbility && (
+        <Message>Pokemons were not found</Message>
       )}
     </Wrapper>
   );

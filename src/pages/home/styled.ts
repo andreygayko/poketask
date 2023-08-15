@@ -11,3 +11,7 @@ export const Wrapper = styled.div`
   background-blend-mode: screen;
   min-height: 100vh;
 `;
+
+export const Message = styled.h1`
+  margin: auto;
+`;
