@@ -29,6 +29,8 @@ export const Select = ({
     };
   }, [wrapperRef]);
 
+  useEffect(() => setInputValue(selected), [selected]);
+
   return (
     <div ref={wrapperRef}>
       <Input
