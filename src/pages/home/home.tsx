@@ -26,7 +26,6 @@ export const HomePage = () => {
     (el) => el.pokemon || []
   );
 
-  if (isLoading || isLoadingListByAbility) return <>Loading...</>;
   return (
     <Wrapper>
       <Filter selected={ability} setSelected={setAbility} />
