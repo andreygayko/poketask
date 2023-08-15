@@ -10,16 +10,14 @@ export const Select = ({
   selected: string;
   setSelected: (value: string) => void;
 }) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(selected);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => setInputValue(selected), []);
 
   return (
     <div>
       <Input
         type="text"
-        value={inputValue || selected}
+        value={inputValue}
         onChange={(e) => setInputValue(e.target.value.toLowerCase())}
         onFocus={() => setOpen(true)}
         placeholder="Ability"
