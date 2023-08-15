@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
   object-fit: cover;
+  max-width: 300px;
+  max-height: 300px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h3`

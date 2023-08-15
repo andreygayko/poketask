@@ -9,4 +9,5 @@ export const Wrapper = styled.div`
     linear-gradient(to top left, lime, transparent),
     linear-gradient(to top right, blue, transparent);
   background-blend-mode: screen;
+  min-height: 100vh;
 `;
